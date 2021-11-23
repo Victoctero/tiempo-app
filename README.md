@@ -1,1 +1,3 @@
-# tiempo-app
+# Autores
+## Martín Yela
+## Pedro Acuña Ciudad
