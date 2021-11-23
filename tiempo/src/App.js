@@ -1,11 +1,12 @@
-
+import { GradosProvider } from './context/provider';
 import './App.css';
 
 function App() {
   return (
-    <div >
+    <GradosProvider>
+
+    </GradosProvider>
       
-    </div>
   );
 }
 
