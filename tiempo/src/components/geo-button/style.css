@@ -1,0 +1,12 @@
+.navigation__button{
+    display: none;
+}
+.search__container{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+.button_container{
+    display: flex;
+    
+}
