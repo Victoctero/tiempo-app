@@ -1,0 +1,7 @@
+
+.card__hour--container{
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    width: 320px;
+}
