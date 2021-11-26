@@ -1,40 +1,23 @@
-import IconButton from '@mui/material/IconButton';
-import DeleteIcon from '@mui/icons-material/Delete';
-import Fab from '@mui/material/Fab';
-import NavigationIcon from '@mui/icons-material/Navigation';
-import './style.css'
-import React, { useState } from 'react';
+import * as React from 'react';
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
 import TextField from '@mui/material/TextField';
-
-
-
-
 export default function GeoButton() {
-
-    const [clase, updateClase] = useState('navigation__button')
-
-    const handlerClick = () => {
-        clase === 'navigation__button' ? updateClase('') : updateClase('navigation__button')
-    }
-
-    return (
+  return (
+    <PopupState variant="popover" popupId="demo-popup-menu">
+      {(popupState) => (
         <React.Fragment>
-            <div className="button_container">
-                <IconButton onClick={handlerClick} aria-label="delete">
-                    <DeleteIcon />
-                </IconButton>
-                <TextField className={clase} id="standard-basic" label="Introduce una localizacion" variant="standard" />
-            </div>
-            <div className="navigate_container">
-
-
-                <Fab size='small' className={clase} variant="extended">
-                    <NavigationIcon sx={{ mr: 1 }} />
-                    Navigate
-                </Fab>
-            </div>
+          <Button variant="contained" {...bindTrigger(popupState)}>
+            I
+          </Button>
+          <Menu {...bindMenu(popupState)}>
+            <MenuItem><TextField id="standard-basic" label="Introduce una localizacion" variant="standard" /></MenuItem>
+            <MenuItem onClick={popupState.close}>Ubicación actual</MenuItem>
+          </Menu>
         </React.Fragment>
-
-
-    )
+      )}
+    </PopupState>
+  );
 }
