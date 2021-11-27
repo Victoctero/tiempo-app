@@ -6,7 +6,7 @@ import { Box } from '@mui/system';
 
 export default function SwitchNavigationContainer() {
     return(
-        <Box sx={{ width: '90%', bgcolor: 'transparent' }} className='switchNavigationContainer' >
+        <Box sx={{ width: '100%', bgcolor: 'transparent' }} className='switchNavigationContainer' >
             <GeoButton></GeoButton>
             <SwitchLabels></SwitchLabels>
         </Box>
