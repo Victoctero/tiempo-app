@@ -1,12 +1,11 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import SwipeableViews from 'react-swipeable-views';
 import { useTheme } from '@mui/material/styles';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import CardHour from '../card-hour';
-import './style.css'
+import './style.css';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -59,9 +58,9 @@ export default function DaySelector() {
         setValue(newValue);
     };
 
-    const handleChangeIndex = (index) => {
-        setValue(index);
-    };
+    // const handleChangeIndex = (index) => {
+    //     setValue(index);
+    // };
 
     return (
         <Box sx={{ width: '100%', bgcolor: 'transparent' }}>
