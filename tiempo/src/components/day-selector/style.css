@@ -5,3 +5,4 @@
     gap: 10px;
     width: 320px;
 }
+.card__hour--container::-webkit-scrollbar {display: none;}

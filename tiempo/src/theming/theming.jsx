@@ -7,7 +7,7 @@ const theme = createTheme({
         paper: 'rgba(255, 255, 255, 0.3)',
       },
       primary: {
-        main: blue[800],
+        main: blue[500],
       },
       secondary: {
         main: 'rgb(0, 0, 0)',
