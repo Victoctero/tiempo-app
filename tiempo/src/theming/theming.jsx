@@ -1,13 +1,13 @@
-import { blue, green, pink, yellow, } from '@mui/material/colors';
+// import { blue, green, pink, yellow, } from '@mui/material/colors';
 import { createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
     palette: {
       primary: {
-        main: blue[500],
+        main: 'rgb(255, 255, 255, 0,3)',
       },
       secondary: {
-        main: yellow[100],
+        main: 'rgb(196, 196, 196, 1)',
       },
       white:{
         main: (255,255,255), 
