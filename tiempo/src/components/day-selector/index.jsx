@@ -6,6 +6,7 @@ import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import CardHour from '../card-hour';
 import './style.css';
+import { Opacity } from '@mui/icons-material';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -63,7 +64,7 @@ export default function DaySelector() {
     // };
 
     return (
-        <Box sx={{ width: '100%', bgcolor: 'transparent' }}>
+        <Box sx={{ width: '100%'}}>
             <Tabs
                 value={value}
                 onChange={handleChange}
@@ -80,7 +81,7 @@ export default function DaySelector() {
                 <Tab label="Domingo" {...a11yProps(5)} />
                 <Tab label="Lunes" {...a11yProps(6)} />
             </Tabs>
-           
+           <Box sx={{ bgcolor: 'background.paper' }}>
                 <TabPanel value={value} index={0} dir={theme.direction} >
                     <div className="card__hour--container" >
                         <CardHour data={data}></CardHour>
@@ -113,7 +114,7 @@ export default function DaySelector() {
                 <TabPanel value={value} index={6} dir={theme.direction}>
                     Item Three
                 </TabPanel>
-            
+            </Box>
         </Box>
     );
 }
