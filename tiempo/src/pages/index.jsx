@@ -3,6 +3,7 @@ import fondo from '../images/fondo.jpg';
 import CardActualDay from '../components/card-actual-day';
 import SwitchNavigationContainer from '../components/switch-navigatio-container';
 
+
 const page_container = {
     width: '100%',
     height: '100%',

@@ -6,7 +6,7 @@ import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import CardHour from '../card-hour';
 import './style.css';
-import { Opacity } from '@mui/icons-material';
+
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -73,13 +73,14 @@ export default function DaySelector() {
                 variant="scrollable"
                 aria-label="full width tabs example"
             >
-                <Tab label="Today" {...a11yProps(0)} />
-                <Tab label="Tomorrow" {...a11yProps(1)} />
-                <Tab label="Jueves" {...a11yProps(2)} />
-                <Tab label="Viernes" {...a11yProps(3)} />
-                <Tab label="Sabado" {...a11yProps(4)} />
-                <Tab label="Domingo" {...a11yProps(5)} />
-                <Tab label="Lunes" {...a11yProps(6)} />
+                
+                <Tab label="Today" {...a11yProps(0)} sx={{color:'text.primary'}} />
+                <Tab label="Tomorrow" {...a11yProps(1)} sx={{color:'text.primary'}}/>
+                <Tab label="Jueves" {...a11yProps(2)} sx={{color:'text.primary'}}/>
+                <Tab label="Viernes" {...a11yProps(3)} sx={{color:'text.primary'}}/>
+                <Tab label="Sabado" {...a11yProps(4)} sx={{color:'text.primary'}}/>
+                <Tab label="Domingo" {...a11yProps(5)} sx={{color:'text.primary'}}/>
+                <Tab label="Lunes" {...a11yProps(6)} sx={{color:'text.primary'}}/>
             </Tabs>
            <Box sx={{ bgcolor: 'background.paper' }}>
                 <TabPanel value={value} index={0} dir={theme.direction} >

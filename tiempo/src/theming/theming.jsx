@@ -1,4 +1,4 @@
-import { blue} from '@mui/material/colors';
+import { blue, red} from '@mui/material/colors';
 import { createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
@@ -12,6 +12,9 @@ const theme = createTheme({
       secondary: {
         main: 'rgb(0, 0, 0)',
       },
+      text: {
+        primary: 'rgb(255, 255, 255)',
+      }
     },
   });
 

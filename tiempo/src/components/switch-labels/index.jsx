@@ -49,11 +49,11 @@ const Root = styled('span')`
     .${switchUnstyledClasses.thumb} {
       left: 14px;
       top: 3px;
-      background-color: #fff;
+      background-color: #ffffff;
     }
 
     .${switchUnstyledClasses.track} {
-      background: #007fff;
+      background: #b3c3d3;
     }
   }
 
@@ -85,9 +85,10 @@ export default function SwitchLabels() {
     <div>
         <FormControlLabel
           value="start"
-          control= {<SwitchUnstyled  onChange={handleChange} component={Root} {...label} />}
+          control= {<SwitchUnstyled onChange={handleChange} component={Root} {...label} />}
           label={grado}
           labelPlacement="start"
+          
         />
           
          

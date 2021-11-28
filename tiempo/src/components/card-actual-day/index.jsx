@@ -1,12 +1,22 @@
 import './style.css';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
 
 export default function CardActualDay(){
     return(
-        <div className='card_container'>
-            <p>ICONO</p>
-            <p className='small'>ºC</p>
-            <p className='big'>18</p>
-            <p className='small'>España, Madrid</p>
-        </div>
+        <CardContent className='card_container' sx={{width:'160px', height:'216px', borderRadius:'22px', bgcolor:'background.paper'}}>
+              <Typography sx={{ fontSize: 20 }} color="text.primary" gutterBottom>
+                ICONO
+              </Typography>
+              <Typography sx={{ fontSize: 12 }} color="text.primary" gutterBottom>
+                ºC
+              </Typography>
+              <Typography sx={{ fontSize: 72 }} color="text.primary" gutterBottom>
+                18
+              </Typography>
+              <Typography sx={{ fontSize: 12 }} color="text.primary" gutterBottom>
+                España, Madrid
+              </Typography>
+        </CardContent>
     )
 }
