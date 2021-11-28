@@ -18,7 +18,7 @@ export default function GeoButton() {
     vertical: 'top',
     horizontal: 'right',
   }} /*sx={{ width: '200px', height:'64px'}}*/ >
-            <MenuItem sx={{fontSize:'12px'}} disableGutters><TextField id="standard-basic" label="Search" variant="outlined" size='small'/></MenuItem>
+            <MenuItem sx={{fontSize:'12px'}} disableGutters><TextField  id="standard-basic" label="Search" variant="outlined" size='small'/></MenuItem>
             <MenuItem sx={{fontSize:'12px'}} disableGutters onClick={popupState.close}>Ubicación actual</MenuItem>
           </Menu>
         </React.Fragment>

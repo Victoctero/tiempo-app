@@ -8,7 +8,8 @@ const page_container = {
     width: '100%',
     height: '100%',
     backgroundImage: `url(${fondo})`,
-    backgroundSize: 'cover' 
+    backgroundSize: 'cover', 
+    overflow: 'hidden',
   };
 
 export default function Page() {
