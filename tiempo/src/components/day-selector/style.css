@@ -3,6 +3,6 @@
     display: flex;
     overflow-x: auto;
     gap: 10px;
-    width: 320px;
+    width: 100%;
 }
 .card__hour--container::-webkit-scrollbar {display: none;}
