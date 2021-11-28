@@ -30,9 +30,9 @@ const Root = styled('span')`
 
   & .${switchUnstyledClasses.thumb} {
     display: block;
-    width: 14px;
-    height: 14px;
-    top: 3px;
+    width: 12px;
+    height: 12px;
+    top: 4px;
     left: 3px;
     border-radius: 16px;
     background-color: #fff;
@@ -48,7 +48,7 @@ const Root = styled('span')`
   &.${switchUnstyledClasses.checked} {
     .${switchUnstyledClasses.thumb} {
       left: 14px;
-      top: 3px;
+      top: 4px;
       background-color: #ffffff;
     }
 

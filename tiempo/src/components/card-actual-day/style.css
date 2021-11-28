@@ -4,9 +4,10 @@
     justify-content: center;
     align-items: center;
     /* opacity: 0.3; */
-
-    /* Eliminar lo de abajo */
-    margin-left: 85px;
-    margin-top: 90px;
-    margin-bottom: 90px;
+}
+.container_flex{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 83px;
 }
