@@ -6,7 +6,7 @@ import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import CardHour from '../card-hour';
 import './style.css';
-import { Opacity } from '@mui/icons-material';
+
 
 const weekDays = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']
 
@@ -84,13 +84,15 @@ export default function DaySelector() {
                 variant="scrollable"
                 aria-label="full width tabs example"
             >
-                <Tab label= "Hoy" {...a11yProps(0)} />
-                <Tab label="Mañana" {...a11yProps(1)} />
-                <Tab label={getActualDay(2)} {...a11yProps(2)} />
-                <Tab label={getActualDay(3)} {...a11yProps(3)} />
-                <Tab label={getActualDay(4)} {...a11yProps(4)} />
-                <Tab label={getActualDay(5)} {...a11yProps(5)} />
-                <Tab label={getActualDay(6)} {...a11yProps(6)} />
+
+                <Tab label= "Hoy" {...a11yProps(0)} sx={{color:'text.primary'}}/>
+                <Tab label="Mañana" {...a11yProps(1)} sx={{color:'text.primary'}}/>
+                <Tab label={getActualDay(2)} {...a11yProps(2)} sx={{color:'text.primary'}}/>
+                <Tab label={getActualDay(3)} {...a11yProps(3)} sx={{color:'text.primary'}}/>
+                <Tab label={getActualDay(4)} {...a11yProps(4)} sx={{color:'text.primary'}}/>
+                <Tab label={getActualDay(5)} {...a11yProps(5)} sx={{color:'text.primary'}}/>
+                <Tab label={getActualDay(6)} {...a11yProps(6)} sx={{color:'text.primary'}}/>
+
             </Tabs>
            <Box sx={{ bgcolor: 'background.paper' }}>
                 <TabPanel value={value} index={0} dir={theme.direction} >

@@ -7,13 +7,13 @@ export default function CardHour(props){
         return (
         //   <Card sx={{ minWidth: 65, maxWidth: 65, height: 150, bgcolor: 'background.paper' }}>
             <CardContent >
-              <Typography sx={{ fontSize: 16 }} color="text.secondary" gutterBottom>
+              <Typography sx={{ fontSize: 16 }} color="text.primary" gutterBottom>
                 00:00
               </Typography>
-              <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+              <Typography sx={{ fontSize: 14 }} color="text.primary" gutterBottom>
                 icono
               </Typography>
-              <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+              <Typography sx={{ fontSize: 14 }} color="text.primary" gutterBottom>
                 6ºC
               </Typography>
             </CardContent>
