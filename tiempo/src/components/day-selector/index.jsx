@@ -8,6 +8,8 @@ import CardHour from '../card-hour';
 import './style.css';
 import { Opacity } from '@mui/icons-material';
 
+const weekDays = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']
+
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
     return (
@@ -33,6 +35,15 @@ TabPanel.propTypes = {
     value: PropTypes.number.isRequired,
 };
 
+function getActualDay(day){
+    const date =  new Date();
+    const actualDay = date.getDay() + 5;
+    let drawDay = actualDay + day;
+    if(drawDay >= weekDays.length){
+        drawDay = drawDay - 7;
+    }
+    return weekDays[drawDay];
+}
 
 
 function a11yProps(index) {
@@ -73,13 +84,13 @@ export default function DaySelector() {
                 variant="scrollable"
                 aria-label="full width tabs example"
             >
-                <Tab label="Today" {...a11yProps(0)} />
-                <Tab label="Tomorrow" {...a11yProps(1)} />
-                <Tab label="Jueves" {...a11yProps(2)} />
-                <Tab label="Viernes" {...a11yProps(3)} />
-                <Tab label="Sabado" {...a11yProps(4)} />
-                <Tab label="Domingo" {...a11yProps(5)} />
-                <Tab label="Lunes" {...a11yProps(6)} />
+                <Tab label= "Hoy" {...a11yProps(0)} />
+                <Tab label="Mañana" {...a11yProps(1)} />
+                <Tab label={getActualDay(2)} {...a11yProps(2)} />
+                <Tab label={getActualDay(3)} {...a11yProps(3)} />
+                <Tab label={getActualDay(4)} {...a11yProps(4)} />
+                <Tab label={getActualDay(5)} {...a11yProps(5)} />
+                <Tab label={getActualDay(6)} {...a11yProps(6)} />
             </Tabs>
            <Box sx={{ bgcolor: 'background.paper' }}>
                 <TabPanel value={value} index={0} dir={theme.direction} >
