@@ -1,0 +1,12 @@
+.card_container_min_max {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 120px;
+}
+.card_min_max {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
