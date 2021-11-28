@@ -1,0 +1,23 @@
+.card__container{
+    display: flex;
+    flex-direction: column;
+    width: 112px;
+    height: 136px;
+    border-radius: 16px;
+    background-color: #FFFFFF;
+    opacity: 0.4;
+    justify-content: center;
+    align-items: center;
+
+}
+.info_card_container{
+    display: flex;
+    gap: 5px;
+
+}
+.info{
+    font-size: 16px;
+}
+.dato{
+    font-size: 46px;
+}
