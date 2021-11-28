@@ -5,6 +5,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import CardHour from '../card-hour';
+import CardMinMax from '../card-min-max';
 import './style.css';
 
 
@@ -35,11 +36,11 @@ TabPanel.propTypes = {
     value: PropTypes.number.isRequired,
 };
 
-function getActualDay(day){
-    const date =  new Date();
+function getActualDay(day) {
+    const date = new Date();
     const actualDay = date.getDay();
     let drawDay = actualDay + day;
-    if(drawDay >= weekDays.length){
+    if (drawDay >= weekDays.length) {
         drawDay = drawDay - 7;
     }
     return weekDays[drawDay];
@@ -75,7 +76,7 @@ export default function DaySelector() {
     // };
 
     return (
-        <Box sx={{ width: '100%'}}>
+        <Box sx={{ width: '100%' }}>
             <Tabs
                 value={value}
                 onChange={handleChange}
@@ -85,16 +86,16 @@ export default function DaySelector() {
                 aria-label="full width tabs example"
             >
 
-                <Tab label= "Hoy" {...a11yProps(0)} sx={{color:'text.primary'}}/>
-                <Tab label="Mañana" {...a11yProps(1)} sx={{color:'text.primary'}}/>
-                <Tab label={getActualDay(2)} {...a11yProps(2)} sx={{color:'text.primary'}}/>
-                <Tab label={getActualDay(3)} {...a11yProps(3)} sx={{color:'text.primary'}}/>
-                <Tab label={getActualDay(4)} {...a11yProps(4)} sx={{color:'text.primary'}}/>
-                <Tab label={getActualDay(5)} {...a11yProps(5)} sx={{color:'text.primary'}}/>
-                <Tab label={getActualDay(6)} {...a11yProps(6)} sx={{color:'text.primary'}}/>
+                <Tab label="Hoy" {...a11yProps(0)} sx={{ color: 'text.primary' }} />
+                <Tab label="Mañana" {...a11yProps(1)} sx={{ color: 'text.primary' }} />
+                <Tab label={getActualDay(2)} {...a11yProps(2)} sx={{ color: 'text.primary' }} />
+                <Tab label={getActualDay(3)} {...a11yProps(3)} sx={{ color: 'text.primary' }} />
+                <Tab label={getActualDay(4)} {...a11yProps(4)} sx={{ color: 'text.primary' }} />
+                <Tab label={getActualDay(5)} {...a11yProps(5)} sx={{ color: 'text.primary' }} />
+                <Tab label={getActualDay(6)} {...a11yProps(6)} sx={{ color: 'text.primary' }} />
 
             </Tabs>
-           <Box sx={{ bgcolor: 'background.paper' }}>
+            <Box sx={{ bgcolor: 'background.paper' }}>
                 <TabPanel value={value} index={0} dir={theme.direction} >
                     <div className="card__hour--container" >
                         <CardHour data={data}></CardHour>
@@ -110,22 +111,22 @@ export default function DaySelector() {
                     </div>
                 </TabPanel>
                 <TabPanel value={value} index={1} dir={theme.direction}>
-                    Item Two
+                    <CardMinMax></CardMinMax>
                 </TabPanel>
                 <TabPanel value={value} index={2} dir={theme.direction}>
-                    Item Three
-                </TabPanel> 
-                 <TabPanel value={value} index={3} dir={theme.direction}>
-                    Item One
+                    <CardMinMax></CardMinMax>
+                </TabPanel>
+                <TabPanel value={value} index={3} dir={theme.direction}>
+                    <CardMinMax></CardMinMax>
                 </TabPanel>
                 <TabPanel value={value} index={4} dir={theme.direction}>
-                    Item Two
+                    <CardMinMax></CardMinMax>
                 </TabPanel>
                 <TabPanel value={value} index={5} dir={theme.direction}>
-                    Item Three
+                    <CardMinMax></CardMinMax>
                 </TabPanel>
                 <TabPanel value={value} index={6} dir={theme.direction}>
-                    Item Three
+                    <CardMinMax></CardMinMax>
                 </TabPanel>
             </Box>
         </Box>
