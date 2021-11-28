@@ -37,7 +37,7 @@ TabPanel.propTypes = {
 
 function getActualDay(day){
     const date =  new Date();
-    const actualDay = date.getDay() + 5;
+    const actualDay = date.getDay();
     let drawDay = actualDay + day;
     if(drawDay >= weekDays.length){
         drawDay = drawDay - 7;
