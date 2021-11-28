@@ -76,7 +76,7 @@ export default function DaySelector() {
     // };
 
     return (
-        <Box sx={{ width: '100%' }}>
+        <Box sx={{ width: '100%', marginTop:'81px' }}>
             <Tabs
                 value={value}
                 onChange={handleChange}
