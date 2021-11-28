@@ -8,6 +8,8 @@ import CardHour from '../card-hour';
 import './style.css';
 
 
+const weekDays = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']
+
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
     return (
@@ -33,6 +35,15 @@ TabPanel.propTypes = {
     value: PropTypes.number.isRequired,
 };
 
+function getActualDay(day){
+    const date =  new Date();
+    const actualDay = date.getDay();
+    let drawDay = actualDay + day;
+    if(drawDay >= weekDays.length){
+        drawDay = drawDay - 7;
+    }
+    return weekDays[drawDay];
+}
 
 
 function a11yProps(index) {
@@ -73,14 +84,15 @@ export default function DaySelector() {
                 variant="scrollable"
                 aria-label="full width tabs example"
             >
-                
-                <Tab label="Today" {...a11yProps(0)} sx={{color:'text.primary'}} />
-                <Tab label="Tomorrow" {...a11yProps(1)} sx={{color:'text.primary'}}/>
-                <Tab label="Jueves" {...a11yProps(2)} sx={{color:'text.primary'}}/>
-                <Tab label="Viernes" {...a11yProps(3)} sx={{color:'text.primary'}}/>
-                <Tab label="Sabado" {...a11yProps(4)} sx={{color:'text.primary'}}/>
-                <Tab label="Domingo" {...a11yProps(5)} sx={{color:'text.primary'}}/>
-                <Tab label="Lunes" {...a11yProps(6)} sx={{color:'text.primary'}}/>
+
+                <Tab label= "Hoy" {...a11yProps(0)} sx={{color:'text.primary'}}/>
+                <Tab label="Mañana" {...a11yProps(1)} sx={{color:'text.primary'}}/>
+                <Tab label={getActualDay(2)} {...a11yProps(2)} sx={{color:'text.primary'}}/>
+                <Tab label={getActualDay(3)} {...a11yProps(3)} sx={{color:'text.primary'}}/>
+                <Tab label={getActualDay(4)} {...a11yProps(4)} sx={{color:'text.primary'}}/>
+                <Tab label={getActualDay(5)} {...a11yProps(5)} sx={{color:'text.primary'}}/>
+                <Tab label={getActualDay(6)} {...a11yProps(6)} sx={{color:'text.primary'}}/>
+
             </Tabs>
            <Box sx={{ bgcolor: 'background.paper' }}>
                 <TabPanel value={value} index={0} dir={theme.direction} >
