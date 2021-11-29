@@ -78,7 +78,6 @@ export default function SwitchLabels() {
     const handleChange = ()=>{
        grados === 'metric' ? setGrados('imperial') : setGrados('metric')
        grado === 'ºC' ? setGrado('ºF') : setGrado('ºC')
-       
     }
 
   return (
