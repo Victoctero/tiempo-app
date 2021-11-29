@@ -31,13 +31,32 @@ async function retrieveCoor(city){      //devuelve un objeto con latitud y longi
 
 async function retrieveCardActualDay() {  //devuelve un objeto con temp y lugar para cardActualDay
     const coord = await retrieveCoor('madrid');
-    const r = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${coord.lat}&lon=${coord.lon}&units=${grados===undefined? 'imperial':grados}&exclude=minutely,hourly,daily,alerts&appid=${apiKey}`);
+    const r = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${coord.lat}&lon=${coord.lon}&units=${grados===undefined? 'imperial':grados}&exclude=minutely,hourly,alerts&appid=${apiKey}`);
     const d = await r.json();
+
+    function unixToActualTime(time){
+        let date = new Date(time * 1000)
+        let hours = date.getHours();
+        let minutes = date.getMinutes();
+        let formatedTime = hours + ':' + minutes;
+        return formatedTime;
+    }
+    
     const objActualDay = {
         icono : d?.current.weather[0].icon,
-        temp : Math.round(d?.current.temp),
-        lugar : d?.timezone
+
+        temp : d?.current.temp,
+        lugar : d?.timezone,
+        rayosUVI : d?.current.uvi,
+        viento : d?.current.wind_speed,
+        lluvia : d?.current.rain?.['1h'] === undefined ? '0.0' : d?.current.rain['1h'] ,
+        humedad : d?.current.humidity,
+        amanecer : unixToActualTime(d?.daily[0]?.sunrise),
+        anochecer: unixToActualTime(d?.daily[0].sunset),
+
+
     }
+    console.log(objActualDay.amanecer)
     
     return objActualDay;
 }
@@ -55,7 +74,7 @@ useEffect (()=>{
             <SwitchNavigationContainer></SwitchNavigationContainer>
             <CardActualDay datos={objActualDay}></CardActualDay>
             <DaySelector></DaySelector>
-            <ContainerCardsExtraInfo></ContainerCardsExtraInfo>
+            <ContainerCardsExtraInfo datos = {objActualDay}></ContainerCardsExtraInfo>
             
         </div>   
     )
