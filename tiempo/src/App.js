@@ -3,16 +3,18 @@ import './App.css';
 import { ThemeProvider } from '@mui/material/styles';
 import themeConfig from './theming/theming.jsx'
 import Page from './pages'
-import './App.css'
+import { InputProvider } from './context/context-input/provider'
 
 
 
 function App() {
   return (
     <ThemeProvider theme={themeConfig}>
-     <GradosProvider value='metric'>   
-        <Page></Page>
-    </GradosProvider>
+      <InputProvider value={'Madrid'}>
+        <GradosProvider value='metric'>
+          <Page></Page>
+        </GradosProvider>
+      </InputProvider>
     </ThemeProvider>
   );
 }
