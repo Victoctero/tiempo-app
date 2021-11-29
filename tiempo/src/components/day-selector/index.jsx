@@ -54,18 +54,14 @@ function a11yProps(index) {
     };
 }
 
-export default function DaySelector() {
+export default function DaySelector(props) {
 
 
     const theme = useTheme();
     const [value, setValue] = React.useState(0);
 
-    // Reemplazar con las props del api
-    const data = {
-        hora: '00:00',
-        luna: 'luna',
-        grados: '6ºC'
-    }
+  
+   
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -98,15 +94,32 @@ export default function DaySelector() {
             <Box sx={{ bgcolor: 'background.paper' }}>
                 <TabPanel value={value} index={0} dir={theme.direction} >
                     <div className="card__hour--container" >
-                        <CardHour data={data}></CardHour>
-                        <CardHour data={data}></CardHour>
-                        <CardHour data={data}></CardHour>
-                        <CardHour data={data}></CardHour>
-                        <CardHour data={data}></CardHour>
-                        <CardHour data={data}></CardHour>
-                        <CardHour data={data}></CardHour>
-                        <CardHour data={data}></CardHour>
-                        <CardHour data={data}></CardHour>
+                        <CardHour temp = {props.datos.hourTemp0} hora = '00:00'></CardHour>
+                        <CardHour temp = {props.datos.hourTemp1} hora = '01:00'></CardHour>
+                        <CardHour temp = {props.datos.hourTemp2} hora = '02:00'></CardHour>
+                        <CardHour temp = {props.datos.hourTemp3} hora = '03:00'></CardHour>
+                        <CardHour temp = {props.datos.hourTemp4} hora = '04:00'></CardHour>
+                        <CardHour temp = {props.datos.hourTemp5} hora = '05:00'></CardHour>
+                        <CardHour temp = {props.datos.hourTemp6} hora = '06:00'></CardHour>
+                        <CardHour temp = {props.datos.hourTemp7} hora = '07:00'></CardHour>
+                        <CardHour temp = {props.datos.hourTemp8} hora = '08:00'></CardHour>
+                        <CardHour temp = {props.datos.hourTemp9} hora = '09:00'></CardHour>
+                        <CardHour temp = {props.datos.hourTemp10} hora = '10:00'></CardHour>
+                        <CardHour temp = {props.datos.hourTemp11} hora = '11:00'></CardHour>
+                        <CardHour temp = {props.datos.hourTemp12} hora = '12:00'></CardHour>
+                        <CardHour temp = {props.datos.hourTemp13} hora = '13:00'></CardHour>
+                        <CardHour temp = {props.datos.hourTemp14} hora = '14:00'></CardHour>
+                        <CardHour temp = {props.datos.hourTemp15} hora = '15:00'></CardHour>
+                        <CardHour temp = {props.datos.hourTemp16} hora = '16:00'></CardHour>
+                        <CardHour temp = {props.datos.hourTemp17} hora = '17:00'></CardHour>
+                        <CardHour temp = {props.datos.hourTemp18} hora = '18:00'></CardHour>
+                        <CardHour temp = {props.datos.hourTemp19} hora = '19:00'></CardHour>
+                        <CardHour temp = {props.datos.hourTemp20} hora = '20:00'></CardHour>
+                        <CardHour temp = {props.datos.hourTemp21} hora = '21:00'></CardHour>
+                        <CardHour temp = {props.datos.hourTemp22} hora = '22:00'></CardHour>
+                        <CardHour temp = {props.datos.hourTemp23} hora = '23:00'></CardHour>
+                        
+                        
 
                     </div>
                 </TabPanel>
