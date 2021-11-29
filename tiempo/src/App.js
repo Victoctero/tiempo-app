@@ -10,7 +10,7 @@ import './App.css'
 function App() {
   return (
     <ThemeProvider theme={themeConfig}>
-     <GradosProvider>   
+     <GradosProvider value='metric'>   
         <Page></Page>
     </GradosProvider>
     </ThemeProvider>

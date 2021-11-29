@@ -45,7 +45,7 @@ async function retrieveCardActualDay() {  //devuelve un objeto con temp y lugar 
     
     let objActualDay = {
         icono : d?.current.weather[0].icon,
-        temp : d?.current.temp,
+        temp : Math.floor(d?.current.temp),
         lugar : d?.timezone,
         rayosUVI : d?.current.uvi,
         viento : d?.current.wind_speed,
