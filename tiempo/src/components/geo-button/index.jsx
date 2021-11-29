@@ -2,9 +2,11 @@ import { useContext } from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import pinAndSearch27 from '../../icons/pinAndSearch27.svg'
+import gpsIcon26 from '../../icons/gpsIcon26.svg'
 import { Popover } from '@mui/material';
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
 import { InputContext } from '../../context/context-input';
+
 
 
 
@@ -12,13 +14,16 @@ export default function GeoButton() {
 
   const [text, setText] = useContext(InputContext);
   
-
+ 
   const geo = (e) => {
-    let coord;
     e.preventDefault();
     navigator.geolocation.getCurrentPosition(function (position) {
-      coord = [position.coords.latitude,position.coords.longitude]
-      setText(coord);
+      async function getName(){      
+        const r = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=f5c32f671f74c888dabe4ad723922e92`);
+        const d = await r.json();
+        setText(d.name)
+      }
+      getName();
     })
 
   } 
@@ -48,7 +53,7 @@ export default function GeoButton() {
             }}
           >
             <Button variant="text" {...bindTrigger(popupState)} onClick={geo}>
-              Geolocalización
+            <img src={gpsIcon26} alt="geolocalizacion" />
            </Button>
            <form onSubmit={handlerEnter}>
             <TextField id="standard-basic" name='city' label="Search" variant="outlined" size='small'/>

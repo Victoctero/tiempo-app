@@ -19,10 +19,11 @@ import FewCloudsStormSun07 from '../icons/FewCloudsStormSun07.svg' //7
 import Snow21 from '../icons/Snow21.svg' // 8
 import Windy12 from '../icons/Windy12.svg'  //9
 import ImagenFondo from '../components/fondo/fondo';
+import MapImage from '../components/mapa';
 
 export default function Page() {
     const [grados] = useContext(GradosContext);
-    const [text, setText] = useContext(InputContext);
+    const [text] = useContext(InputContext);
     const [objActualDay, setObjActualDay] = useState({})
     let fondo;
     const fondos = [backgroundSunny, backgroundCloudy, backgroundRainy];
@@ -198,6 +199,7 @@ useEffect (()=>{
             <CardActualDay datos={objActualDay}></CardActualDay>
             <DaySelector datos = {objActualDay}></DaySelector>
             <ContainerCardsExtraInfo datos = {objActualDay}></ContainerCardsExtraInfo>
+            <MapImage></MapImage>
             </div>
 
         </div>   

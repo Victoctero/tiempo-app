@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import CardHour from '../card-hour';
 import CardMinMax from '../card-min-max';
 import './style.css';
+import { bgcolor } from '@mui/system';
 
 
 const weekDays = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']
