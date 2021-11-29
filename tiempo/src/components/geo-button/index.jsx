@@ -17,9 +17,9 @@ export default function GeoButton() {
           <Menu {...bindMenu(popupState)} anchorOrigin={{
             vertical: 'top',
             horizontal: 'right'
-          }} sx={{ width: '230px', '& .MuiMenu-list': { margin: '0', padding: '0' }, '& .MuiMenuItem-root': { justifyContent: 'center', minHeight: '0px' }, '& .MuiOutlinedInput-input': { padding: '0' } }} >
+          }} sx={{ width: '230px', '& .MuiMenu-list': { margin: '0', padding: '0' }, '& .MuiMenuItem-root': { justifyContent: 'center', minHeight: '0px' }, '& .MuiOutlinedInput-input': { }}} >
             {/* si quito el paddin de arriba el placeholde entra bien, pero se agranda */}
-            <MenuItem sx={{ fontSize: '12px' }} disableGutters ><TextField id="standard-basic" label="Search" variant="outlined" size='small' /></MenuItem>
+            <MenuItem sx={{ fontSize: '12px' }} disableGutters ><TextField id="standard-basic" label="Search" variant="outlined" size='small' sx={{height:'5px'}}/></MenuItem>
             <MenuItem sx={{ fontSize: '12px' }} disableGutters onClick={popupState.close}>Ubicación actual</MenuItem>
           </Menu>
         </React.Fragment>

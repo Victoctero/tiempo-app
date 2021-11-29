@@ -102,6 +102,7 @@ useEffect (()=>{
             <DaySelector datos = {objActualDay}></DaySelector>
             <ContainerCardsExtraInfo datos = {objActualDay}></ContainerCardsExtraInfo>
             
+
         </div>   
     )
 }
