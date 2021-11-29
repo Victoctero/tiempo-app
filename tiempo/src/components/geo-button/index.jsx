@@ -12,14 +12,15 @@ export default function GeoButton() {
       {(popupState) => (
         <React.Fragment>
           <Button variant="text" {...bindTrigger(popupState)}>
-          <img src={pinAndSearch27} alt="geolocalizacion"/>
+            <img src={pinAndSearch27} alt="geolocalizacion" />
           </Button>
           <Menu {...bindMenu(popupState)} anchorOrigin={{
-    vertical: 'top',
-    horizontal: 'right',
-  }} /*sx={{ width: '200px', height:'64px'}}*/ >
-            <MenuItem sx={{fontSize:'12px'}} disableGutters><TextField  id="standard-basic" label="Search" variant="outlined" size='small'/></MenuItem>
-            <MenuItem sx={{fontSize:'12px'}} disableGutters onClick={popupState.close}>Ubicación actual</MenuItem>
+            vertical: 'top',
+            horizontal: 'right'
+          }} sx={{ width: '230px', '& .MuiMenu-list': { margin: '0', padding: '0' }, '& .MuiMenuItem-root': { justifyContent: 'center', minHeight: '0px' }, '& .MuiOutlinedInput-input': { padding: '0' } }} >
+            {/* si quito el paddin de arriba el placeholde entra bien, pero se agranda */}
+            <MenuItem sx={{ fontSize: '12px' }} disableGutters ><TextField id="standard-basic" label="Search" variant="outlined" size='small' /></MenuItem>
+            <MenuItem sx={{ fontSize: '12px' }} disableGutters onClick={popupState.close}>Ubicación actual</MenuItem>
           </Menu>
         </React.Fragment>
       )}

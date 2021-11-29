@@ -76,7 +76,7 @@ export default function SwitchLabels() {
   const[grados, setGrados] = useContext(GradosContext); // Contexto Celsius/Farenheit
     const[grado, setGrado]  = useState('ºC')   // Label ºC ºF
     const handleChange = ()=>{
-       grados === 'celsius' ? setGrados('farenheit') : setGrados('celsius')
+       grados === 'metric' ? setGrados('imperial') : setGrados('metric')
        grado === 'ºC' ? setGrado('ºF') : setGrado('ºC')
        console.log(grados);
     }
@@ -86,9 +86,9 @@ export default function SwitchLabels() {
         <FormControlLabel
           value="start"
           control= {<SwitchUnstyled onChange={handleChange} component={Root} {...label} />}
-          label={grado}
+          label={grado === 'ºC' ? 'ºF':'ºC'}
           labelPlacement="start"
-          
+          sx={{'& .MuiTypography-root': {color:'text.primary'}}}
         />
           
          
