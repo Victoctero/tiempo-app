@@ -1,28 +1,34 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
 import TextField from '@mui/material/TextField';
 import pinAndSearch27 from '../../icons/pinAndSearch27.svg'
-
+import { Popover } from '@mui/material';
+import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
 export default function GeoButton() {
   return (
-    <PopupState variant="popover" popupId="demo-popup-menu" >
+    <PopupState variant="popover" popupId="demo-popup-popover">
       {(popupState) => (
-        <React.Fragment>
+        <div>
           <Button variant="text" {...bindTrigger(popupState)}>
             <img src={pinAndSearch27} alt="geolocalizacion" />
           </Button>
-          <Menu {...bindMenu(popupState)} anchorOrigin={{
-            vertical: 'top',
-            horizontal: 'right'
-          }} sx={{ width: '230px', '& .MuiMenu-list': { margin: '0', padding: '0' }, '& .MuiMenuItem-root': { justifyContent: 'center', minHeight: '0px' }, '& .MuiOutlinedInput-input': { }}} >
-            {/* si quito el paddin de arriba el placeholde entra bien, pero se agranda */}
-            <MenuItem sx={{ fontSize: '12px' }} disableGutters ><TextField id="standard-basic" label="Search" variant="outlined" size='small' sx={{height:'5px'}}/></MenuItem>
-            <MenuItem sx={{ fontSize: '12px' }} disableGutters onClick={popupState.close}>Ubicación actual</MenuItem>
-          </Menu>
-        </React.Fragment>
+          <Popover sx={{width:'200px'}}
+            {...bindPopover(popupState)}
+            anchorOrigin={{
+              vertical: 'top',
+              horizontal: 'right',
+            }}
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'left ',
+            }}
+          >
+            <Button variant="text" {...bindTrigger(popupState)}>
+              Geolocalización
+           </Button>
+            <TextField id="standard-basic" label="Search" variant="outlined" size='small' />
+          </Popover>
+        </div>
       )}
     </PopupState>
   );

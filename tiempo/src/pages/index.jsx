@@ -38,7 +38,7 @@ function unixToActualTime(time){
 
 async function retrieveCardActualDay() {  //devuelve un objeto con temp y lugar para cardActualDay
     const coord = await retrieveCoor('madrid');
-    const r = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${coord.lat}&lon=${coord.lon}&units=${grados===undefined? 'imperial':grados}&exclude=minutely,alerts&appid=${apiKey}`);
+    const r = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${coord.lat}&lon=${coord.lon}&units=${grados}&exclude=minutely,alerts&appid=${apiKey}`);
     const d = await r.json();
 
     
