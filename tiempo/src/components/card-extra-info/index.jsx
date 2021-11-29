@@ -6,7 +6,7 @@ import { Box } from '@mui/system';
 export default function CardExtraInfo(props) {
 
     return (
-        <CardContent className='card__container' sx={{ width: '112px', height: '136px', borderRadius: '16px', bgcolor: 'background.paper', opacity: '0.4' }}>
+        <CardContent className='card__container' sx={{ width: '112px', height: '136px', borderRadius: '16px', bgcolor: 'background.paper'}}> {/*acá iba una opacidad*/}
             <Box className='info_card_container'>
                 <Typography sx={{ fontSize: 16 }} color="text.primary" gutterBottom>
                     {props.info}

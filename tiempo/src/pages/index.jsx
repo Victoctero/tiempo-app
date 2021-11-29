@@ -1,30 +1,60 @@
 import DaySelector from '../components/day-selector';
-import fondo from '../images/fondo.jpg';
+import backgroundRainy from '../images/backgroundRainy.jpg';
+import backgroundSunny from '../images/backgroundSunny.jpg';
+import backgroundCloudy from '../images/backgroundCloudy.jpg';
 import CardActualDay from '../components/card-actual-day';
 import SwitchNavigationContainer from '../components/switch-navigatio-container';
 import ContainerCardsExtraInfo from '../components/container-cards-extra-info';
 import {apiKey} from '../apiKey.js'
 import { useContext, useEffect, useState } from 'react';
 import { GradosContext } from '../context';
+import { InputContext } from '../context/context-input';
+import ClearskySun02 from '../icons/ClearskySun02.svg'   //1
+import FewCloudsSun03 from '../icons/FewCloudsSun03.svg' //2
+import Cloudy01 from '../icons/Cloudy01.svg' //3
+import FewcloudsMoon06 from '../icons/FewcloudsMoon06.svg' //4
+import Rainy11 from '../icons/Rainy11.svg' //5
+import FewcloudsRainSun25 from '../icons/FewcloudsRainSun25.svg' //6
+import FewCloudsStormSun07 from '../icons/FewCloudsStormSun07.svg' //7
+import Snow21 from '../icons/Snow21.svg' // 8
+import Windy12 from '../icons/Windy12.svg'  //9
+import Humidity10 from '../icons/Humidity10.svg' //10
+import Sunrise23 from '../icons/Sunrise23.svg' //11
+import Sunsent24 from '../icons/Sunsent24.svg' //12
 
-
-const page_container = {
-    width: '100%',
-    height: '100%',
-    backgroundImage: `url(${fondo})`,
-    backgroundSize: 'cover', 
-    overflow: 'hidden',
-  };
 
 export default function Page() {
     const [grados] = useContext(GradosContext);
+    const [text, setText] = useContext(InputContext);
     const [objActualDay, setObjActualDay] = useState({})
+    let fondo;
+    const fondos = [backgroundSunny, backgroundCloudy, backgroundRainy];
+
+    if (objActualDay?.icono === 'clear sky'){
+        fondo = fondos[0];
+    } else if (objActualDay?.icono === 'few clouds' || objActualDay?.icono === 'scattered clouds' || objActualDay?.icono === 'broken clouds') {
+        fondo = fondos[1];
+    } else {
+        fondo = fondos[2];
+    }
+
+    const page_container = {
+            width: '100%',
+            height: '100%',
+            backgroundImage: `url(${fondo})`,
+            backgroundSize: 'cover', 
+            overflow: 'hidden',
+        };
+
+
 async function retrieveCoor(city){      //devuelve un objeto con latitud y longitud
     const r = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`);
     const d = await r.json();
     const data = {
         lat: d.coord.lat,
-        lon: d.coord.lon
+        lon: d.coord.lon,
+        city: d.name,
+        country: d.sys.country
     }
     return data
 }
@@ -37,16 +67,31 @@ function unixToActualTime(time){
     }
 
 async function retrieveCardActualDay() {  //devuelve un objeto con temp y lugar para cardActualDay
-    const coord = await retrieveCoor('madrid');
+    const coord = await retrieveCoor(text);
     const r = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${coord.lat}&lon=${coord.lon}&units=${grados}&exclude=minutely,alerts&appid=${apiKey}`);
     const d = await r.json();
-
     
+    let iconoNew;
+    switch (d?.current.weather[0].description) {
+        case 'clear sky': iconoNew =  ClearskySun02; break;
+        case 'few clouds': iconoNew =  FewCloudsSun03; break;
+        case 'scattered clouds': iconoNew =  Cloudy01; break;
+        case 'broken clouds': iconoNew =  FewcloudsMoon06; break;
+        case 'shower rain': iconoNew =  Rainy11; break;
+        case 'rain': iconoNew =  FewcloudsRainSun25; break;
+        case 'thunderstorm': iconoNew =  FewCloudsStormSun07; break;
+        case 'snow': iconoNew =  Snow21; break;
+        case 'mist': iconoNew =  Windy12; break;
+        default: iconoNew = Rainy11; break;
+    } 
+    console.log(d?.current.weather[0].description)
     
     let objActualDay = {
-        icono : d?.current.weather[0].icon,
+        icono2 : iconoNew,
+        icono : d?.current.weather[0].description,
         temp : Math.floor(d?.current.temp),
-        lugar : d?.timezone,
+        city : coord.city,
+        country : coord.country,
         rayosUVI : d?.current.uvi,
         viento : d?.current.wind_speed,
         lluvia : d?.current.rain?.['1h'] === undefined ? '0.0' : d?.current.rain['1h'] ,
@@ -93,7 +138,9 @@ useEffect (()=>{
         setObjActualDay(a);
     }
     getData();
-}, [grados])
+    
+    
+}, [grados, text])
 
     return(
         <div style={page_container}>
