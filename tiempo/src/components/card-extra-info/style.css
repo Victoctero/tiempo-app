@@ -3,8 +3,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+   
 }
 .info_card_container{
     display: flex;
-    gap: 5px;
+    gap: 16px;
 }

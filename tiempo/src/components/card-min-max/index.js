@@ -2,19 +2,22 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import './style.css'
 import { Box } from '@mui/system';
+import { useContext } from 'react';
+import { GradosContext } from '../../context';
 
-export default function CardMinMax() {
+export default function CardMinMax(props) {
+    const [grados] = useContext(GradosContext);
     return (
         <CardContent className='card_container_min_max'>
             <Typography sx={{ fontSize: 18 }} color="text.primary" gutterBottom>
-                ICONO
+                <img src={props.icono} alt="icono" />
             </Typography>
             <Box className='card_min_max'>
                 <Typography sx={{ fontSize: 16 }} color="text.primary" gutterBottom>
                     Min.
                 </Typography>
                 <Typography sx={{ fontSize: 14 }} color="text.primary" gutterBottom>
-                    6ºC
+                    {props.min}{grados === 'metric' ? 'ºC' : 'ºF'}
                 </Typography>
             </Box>
             <Box className='card_min_max'>
@@ -22,7 +25,7 @@ export default function CardMinMax() {
                     Máx.
                 </Typography>
                 <Typography sx={{ fontSize: 14 }} color="text.primary" gutterBottom>
-                    6ºC
+                    {props.max}{grados === 'metric' ? 'ºC' : 'ºF'}
                 </Typography>
             </Box>
         </CardContent>

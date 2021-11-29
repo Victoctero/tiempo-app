@@ -21,7 +21,7 @@ import Windy12 from '../icons/Windy12.svg'  //9
 import Humidity10 from '../icons/Humidity10.svg' //10
 import Sunrise23 from '../icons/Sunrise23.svg' //11
 import Sunsent24 from '../icons/Sunsent24.svg' //12
-
+import ImagenFondo from '../components/fondo/fondo';
 
 export default function Page() {
     const [grados] = useContext(GradosContext);
@@ -37,11 +37,11 @@ export default function Page() {
     } else {
         fondo = fondos[2];
     }
-
+    console.log(fondo);
     const page_container = {
             width: '100%',
             height: '100%',
-            backgroundImage: `url(${fondo})`,
+            // backgroundImage: `url(${fondo})`,
             backgroundSize: 'cover', 
             overflow: 'hidden',
         };
@@ -71,21 +71,29 @@ async function retrieveCardActualDay() {  //devuelve un objeto con temp y lugar 
     const r = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${coord.lat}&lon=${coord.lon}&units=${grados}&exclude=minutely,alerts&appid=${apiKey}`);
     const d = await r.json();
     
-    let iconoNew;
-    switch (d?.current.weather[0].description) {
-        case 'clear sky': iconoNew =  ClearskySun02; break;
-        case 'few clouds': iconoNew =  FewCloudsSun03; break;
-        case 'scattered clouds': iconoNew =  Cloudy01; break;
-        case 'broken clouds': iconoNew =  FewcloudsMoon06; break;
-        case 'shower rain': iconoNew =  Rainy11; break;
-        case 'rain': iconoNew =  FewcloudsRainSun25; break;
-        case 'thunderstorm': iconoNew =  FewCloudsStormSun07; break;
-        case 'snow': iconoNew =  Snow21; break;
-        case 'mist': iconoNew =  Windy12; break;
-        default: iconoNew = Rainy11; break;
-    } 
-    console.log(d?.current.weather[0].description)
     
+    function drawIcono(code){
+        let icono;
+        switch (code) {
+        case 'clear sky': icono =  ClearskySun02; break;
+        case 'few clouds': icono =  FewCloudsSun03; break;
+        case 'scattered clouds': icono =  Cloudy01; break;
+        case 'broken clouds': icono =  FewcloudsMoon06; break;
+        case 'shower rain': icono=  Rainy11; break;
+        case 'rain': icono =  FewcloudsRainSun25; break;
+        case 'thunderstorm': icono =  FewCloudsStormSun07; break;
+        case 'snow': icono =  Snow21; break;
+        case 'mist': icono =  Windy12; break;
+        default: icono = Rainy11; break;
+    } 
+    return icono;
+}
+let iconoNew = drawIcono(d?.current.weather[0].description);
+
+
+    
+    
+
     let objActualDay = {
         icono2 : iconoNew,
         icono : d?.current.weather[0].description,
@@ -96,6 +104,25 @@ async function retrieveCardActualDay() {  //devuelve un objeto con temp y lugar 
         viento : d?.current.wind_speed,
         lluvia : d?.current.rain?.['1h'] === undefined ? '0.0' : d?.current.rain['1h'] ,
         humedad : d?.current.humidity,
+        minTemp1 : Math.floor(d?.daily[1].temp.min),
+        minTemp2 : Math.floor(d?.daily[2].temp.min),
+        minTemp3 : Math.floor(d?.daily[3].temp.min),
+        minTemp4 : Math.floor(d?.daily[4].temp.min),
+        minTemp5 : Math.floor(d?.daily[5].temp.min),
+        minTemp6 : Math.floor(d?.daily[6].temp.min),
+        maxTemp1 : Math.floor(d?.daily[1].temp.max),
+        maxTemp2 : Math.floor(d?.daily[2].temp.max),
+        maxTemp3 : Math.floor(d?.daily[3].temp.max),
+        maxTemp4 : Math.floor(d?.daily[4].temp.max),
+        maxTemp5 : Math.floor(d?.daily[5].temp.max),
+        maxTemp6 : Math.floor(d?.daily[6].temp.max),
+        iconoDay1 : drawIcono(d?.daily[1].weather[0].description),
+        iconoDay2 : drawIcono(d?.daily[2].weather[0].description),
+        iconoDay3 : drawIcono(d?.daily[3].weather[0].description),
+        iconoDay4 : drawIcono(d?.daily[4].weather[0].description),
+        iconoDay5 : drawIcono(d?.daily[5].weather[0].description),
+        iconoDay6 : drawIcono(d?.daily[6].weather[0].description),
+        
         amanecer : unixToActualTime(d?.daily[0]?.sunrise),
         anochecer: unixToActualTime(d?.daily[0].sunset),
         hourTemp0: Math.floor(d?.hourly[0].temp),
@@ -122,6 +149,30 @@ async function retrieveCardActualDay() {  //devuelve un objeto con temp y lugar 
         hourTemp21: Math.floor(d?.hourly[21].temp),
         hourTemp22: Math.floor(d?.hourly[22].temp),
         hourTemp23: Math.floor(d?.hourly[23].temp),
+        hourIcon0: drawIcono(d?.hourly[0].weather[0].description),
+        hourIcon1: drawIcono(d?.hourly[1].weather[0].description),
+        hourIcon2: drawIcono(d?.hourly[2].weather[0].description),
+        hourIcon3: drawIcono(d?.hourly[3].weather[0].description),
+        hourIcon4: drawIcono(d?.hourly[4].weather[0].description),
+        hourIcon5: drawIcono(d?.hourly[5].weather[0].description),
+        hourIcon6: drawIcono(d?.hourly[6].weather[0].description),
+        hourIcon7: drawIcono(d?.hourly[7].weather[0].description),
+        hourIcon8: drawIcono(d?.hourly[8].weather[0].description),
+        hourIcon9: drawIcono(d?.hourly[9].weather[0].description),
+        hourIcon10: drawIcono(d?.hourly[10].weather[0].description),
+        hourIcon11: drawIcono(d?.hourly[11].weather[0].description),
+        hourIcon12: drawIcono(d?.hourly[12].weather[0].description),
+        hourIcon13: drawIcono(d?.hourly[13].weather[0].description),
+        hourIcon14: drawIcono(d?.hourly[14].weather[0].description),
+        hourIcon15: drawIcono(d?.hourly[15].weather[0].description),
+        hourIcon16: drawIcono(d?.hourly[16].weather[0].description),
+        hourIcon17: drawIcono(d?.hourly[17].weather[0].description),
+        hourIcon18: drawIcono(d?.hourly[18].weather[0].description),
+        hourIcon19: drawIcono(d?.hourly[19].weather[0].description),
+        hourIcon20: drawIcono(d?.hourly[20].weather[0].description),
+        hourIcon21: drawIcono(d?.hourly[21].weather[0].description),
+        hourIcon22: drawIcono(d?.hourly[22].weather[0].description),
+        hourIcon23: drawIcono(d?.hourly[23].weather[0].description),
 
 
     }
@@ -144,11 +195,13 @@ useEffect (()=>{
 
     return(
         <div style={page_container}>
+            <ImagenFondo datos={fondo}></ImagenFondo>
+            <div className='relative'>
             <SwitchNavigationContainer></SwitchNavigationContainer>
             <CardActualDay datos={objActualDay}></CardActualDay>
             <DaySelector datos = {objActualDay}></DaySelector>
             <ContainerCardsExtraInfo datos = {objActualDay}></ContainerCardsExtraInfo>
-            
+            </div>
 
         </div>   
     )

@@ -14,7 +14,7 @@ export default function CardHour(props){
                 {props.hora}
               </Typography>
               <Typography sx={{ fontSize: 14 }} color="text.primary" gutterBottom>
-                icono
+              <img src={props.icono} alt="icono" />
               </Typography>
               <Typography sx={{ fontSize: 14 }} color="text.primary" gutterBottom>
                 {`${props.temp} ${grados === 'metric' ? 'ºC' : 'ºF'}`}
