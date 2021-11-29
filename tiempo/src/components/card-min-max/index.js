@@ -10,7 +10,7 @@ export default function CardMinMax(props) {
     return (
         <CardContent className='card_container_min_max'>
             <Typography sx={{ fontSize: 18 }} color="text.primary" gutterBottom>
-                <img src={props.icono} alt="icono" />
+                <img src={props.icono} alt="icono" className='icono_card' />
             </Typography>
             <Box className='card_min_max'>
                 <Typography sx={{ fontSize: 16 }} color="text.primary" gutterBottom>

@@ -7,8 +7,6 @@ import Box from '@mui/material/Box';
 import CardHour from '../card-hour';
 import CardMinMax from '../card-min-max';
 import './style.css';
-import { bgcolor } from '@mui/system';
-
 
 const weekDays = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']
 
@@ -68,9 +66,6 @@ export default function DaySelector(props) {
         setValue(newValue);
     };
 
-    // const handleChangeIndex = (index) => {
-    //     setValue(index);
-    // };
 
     return (
         <Box sx={{ width: '100%', marginTop:'81px', marginBottom:'57px' }}>

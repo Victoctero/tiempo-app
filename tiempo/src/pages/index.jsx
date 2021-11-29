@@ -35,7 +35,6 @@ export default function Page() {
     } else {
         fondo = fondos[2];
     }
-    console.log(fondo);
     const page_container = {
             width: '100%',
             height: '100%',
