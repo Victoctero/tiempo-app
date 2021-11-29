@@ -19,7 +19,6 @@ const page_container = {
 export default function Page() {
     const [grados] = useContext(GradosContext);
     const [objActualDay, setObjActualDay] = useState({})
-    console.log(grados)
 async function retrieveCoor(city){      //devuelve un objeto con latitud y longitud
     const r = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`);
     const d = await r.json();
@@ -45,6 +44,7 @@ async function retrieveCardActualDay() {  //devuelve un objeto con temp y lugar 
     
     const objActualDay = {
         icono : d?.current.weather[0].icon,
+
         temp : d?.current.temp,
         lugar : d?.timezone,
         rayosUVI : d?.current.uvi,
@@ -53,6 +53,7 @@ async function retrieveCardActualDay() {  //devuelve un objeto con temp y lugar 
         humedad : d?.current.humidity,
         amanecer : unixToActualTime(d?.daily[0]?.sunrise),
         anochecer: unixToActualTime(d?.daily[0].sunset),
+
 
     }
     console.log(objActualDay.amanecer)

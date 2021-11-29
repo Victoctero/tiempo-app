@@ -12,7 +12,7 @@ export default function CardActualDay(props){
               <Typography sx={{ fontSize: 12, marginLeft:'90px' }} color="text.primary" gutterBottom>
                 ºC
               </Typography>
-              <Typography sx={{ fontSize: 62, lineHeight:'0.7' }} color="text.primary" gutterBottom>
+              <Typography sx={{ fontSize: 72, lineHeight:'0.7' }} color="text.primary" gutterBottom>
                 {props.datos.temp}
               </Typography>
               <Typography sx={{ fontSize: 12 }} color="text.primary" gutterBottom>

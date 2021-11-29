@@ -1,3 +1,3 @@
-import React from 'react'
+import { createContext } from 'react';
 
-export const GradosContext =  React.createContext('metric');
+export const GradosContext =  createContext('metric');
