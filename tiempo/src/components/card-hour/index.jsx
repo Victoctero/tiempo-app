@@ -2,8 +2,11 @@ import './style.css'
 // import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+import { useContext } from 'react';
+import { GradosContext } from '../../context';
 
 export default function CardHour(props){
+        const [grados] = useContext(GradosContext)
         return (
         //   <Card sx={{ minWidth: 65, maxWidth: 65, height: 150, bgcolor: 'background.paper' }}>
             <CardContent >
@@ -14,7 +17,7 @@ export default function CardHour(props){
                 icono
               </Typography>
               <Typography sx={{ fontSize: 14 }} color="text.primary" gutterBottom>
-                {props.temp}
+                {`${props.temp} ${grados === 'metric' ? 'ºC' : 'ºF'}`}
               </Typography>
             </CardContent>
         //   </Card>
