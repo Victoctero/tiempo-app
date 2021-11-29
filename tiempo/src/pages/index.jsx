@@ -18,9 +18,6 @@ import FewcloudsRainSun25 from '../icons/FewcloudsRainSun25.svg' //6
 import FewCloudsStormSun07 from '../icons/FewCloudsStormSun07.svg' //7
 import Snow21 from '../icons/Snow21.svg' // 8
 import Windy12 from '../icons/Windy12.svg'  //9
-import Humidity10 from '../icons/Humidity10.svg' //10
-import Sunrise23 from '../icons/Sunrise23.svg' //11
-import Sunsent24 from '../icons/Sunsent24.svg' //12
 import ImagenFondo from '../components/fondo/fondo';
 
 export default function Page() {

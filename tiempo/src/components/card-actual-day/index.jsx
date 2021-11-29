@@ -12,8 +12,8 @@ export default function CardActualDay(props){
     return(
         <div className='container_flex'>
         <CardContent className='card_container' sx={{width:'160px', height:'216px', borderRadius:'22px', bgcolor:'background.paper'}}>
-              <Typography sx={{ fontSize: 20 }} color="text.primary" gutterBottom>
-              <img src={props.datos.icono2} alt="icono" />
+              <Typography  color="text.primary" gutterBottom >
+              <img src={props.datos.icono2} alt="icono" className='imgIcono'/>
               </Typography>
               <Typography sx={{ fontSize: 12, marginLeft:'90px' }} color="text.primary" gutterBottom>
                 {grados === 'metric' ? 'ºC' : 'ºF'}
@@ -21,7 +21,7 @@ export default function CardActualDay(props){
               <Typography sx={{ fontSize: 72, lineHeight:'0.7' }} color="text.primary" gutterBottom>
                 {props.datos.temp}
               </Typography>
-              <Typography sx={{ fontSize: 12 }} color="text.primary" gutterBottom>
+              <Typography sx={{ fontSize: 12 }} color="text.primary" gutterBottom >
               {props.datos.country +  ','+props.datos.city}
               </Typography>
         </CardContent>
