@@ -82,7 +82,7 @@ export default function DaySelector(props) {
                 aria-label="full width tabs example"
             >
 
-                <Tab label="Hoy" {...a11yProps(0)} sx={{ color: 'text.primary' }} />
+                <Tab label="Hoy" {...a11yProps(0)} sx={{ color: 'text.primary'}} />
                 <Tab label="Mañana" {...a11yProps(1)} sx={{ color: 'text.primary' }} />
                 <Tab label={getActualDay(2)} {...a11yProps(2)} sx={{ color: 'text.primary' }} />
                 <Tab label={getActualDay(3)} {...a11yProps(3)} sx={{ color: 'text.primary' }} />

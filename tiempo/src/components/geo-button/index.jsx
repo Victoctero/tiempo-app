@@ -11,19 +11,29 @@ import { InputContext } from '../../context/context-input';
 export default function GeoButton() {
 
   const [text, setText] = useContext(InputContext);
-  let close;
+  
+
+  const geo = (e) => {
+    let coord;
+    e.preventDefault();
+    navigator.geolocation.getCurrentPosition(function (position) {
+      coord = [position.coords.latitude,position.coords.longitude]
+      setText(coord);
+    })
+
+  } 
+  
 
   const handlerEnter = (e) => {
        e.preventDefault();
       setText(e.target.city.value);
-      close = false;
   }
 
   return (
     <PopupState variant="popover" popupId="demo-popup-popover" >
       {(popupState) => (
         <div>
-          <Button variant="text" {...bindTrigger(popupState)}>
+          <Button variant="text" {...bindTrigger(popupState)} >
             <img src={pinAndSearch27} alt="geolocalizacion" />
           </Button>
           <Popover sx={{width:'200px'}}
@@ -37,7 +47,7 @@ export default function GeoButton() {
               horizontal: 'left ',
             }}
           >
-            <Button variant="text" {...bindTrigger(popupState)}>
+            <Button variant="text" {...bindTrigger(popupState)} onClick={geo}>
               Geolocalización
            </Button>
            <form onSubmit={handlerEnter}>
