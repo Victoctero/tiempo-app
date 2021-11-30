@@ -10,3 +10,6 @@
     justify-content: space-around;
     flex-direction: column;
 }
+.icono_card {
+    width: 50px;
+}

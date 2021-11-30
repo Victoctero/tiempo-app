@@ -1,4 +1,3 @@
-
 .card__hour--container{
     display: flex;
     overflow-x: auto;
@@ -6,3 +5,20 @@
     width: 100%;
 }
 .card__hour--container::-webkit-scrollbar {display: none;}
+.css-2pglpk-MuiButtonBase-root-MuiTab-root.Mui-selected{
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    margin-bottom: 8px;
+}
+.css-2pglpk-MuiButtonBase-root-MuiTab-root.Mui-selected {
+    color: rgb(255, 255, 255);
+}
+/* .MuiPopover-paper{
+    text-align: center;
+} */
+.MuiOutlinedInput-input{
+    text-align: center;
+}
+.MuiTabs-indicator {
+    display: none;
+}
