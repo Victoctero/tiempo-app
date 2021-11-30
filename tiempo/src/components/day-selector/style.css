@@ -16,7 +16,7 @@
 /* .MuiPopover-paper{
     text-align: center;
 } */
-.MuiOutlinedInput-input{
+.MuiOutlinedInput-input::placeholder{
     text-align: center;
 }
 .MuiTabs-indicator {
