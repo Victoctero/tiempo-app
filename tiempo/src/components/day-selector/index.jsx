@@ -72,7 +72,7 @@ export default function DaySelector(props) {
             <Tabs
                 value={value}
                 onChange={handleChange}
-                indicatorColor="transparent"
+                // indicatorColor="transparent"
                 textColor="secondary"
                 variant="scrollable"
                 aria-label="full width tabs example"

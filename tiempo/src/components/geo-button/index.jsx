@@ -12,7 +12,7 @@ import { InputContext } from '../../context/context-input';
 
 export default function GeoButton() {
 
-  const [text, setText] = useContext(InputContext);
+  const [text,setText] = useContext(InputContext);
   
  
   const geo = (e) => {
@@ -47,10 +47,10 @@ export default function GeoButton() {
               vertical: 'top',
               horizontal: 'right',
             }}
-            transformOrigin={{
-              vertical: 'top',
-              horizontal: 'left ',
-            }}
+            // transformOrigin={{
+            //   vertical: 'top',
+            //   horizontal: 'left ',
+            // }}
           >
             <Button variant="text" {...bindTrigger(popupState)} onClick={geo}>
             <img src={gpsIcon26} alt="geolocalizacion" />

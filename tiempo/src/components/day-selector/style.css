@@ -19,3 +19,6 @@
 .MuiOutlinedInput-input{
     text-align: center;
 }
+.MuiTabs-indicator {
+    display: none;
+}

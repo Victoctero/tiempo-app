@@ -22,7 +22,7 @@ export default function CardActualDay(props){
                 {props.datos.temp}
               </Typography>
               <Typography sx={{ fontSize: 12 }} color="text.primary" gutterBottom >
-              {props.datos.country +  ','+props.datos.city}
+              {props.datos.country +  ', '+props.datos.city}
               </Typography>
         </CardContent>
         </div>
